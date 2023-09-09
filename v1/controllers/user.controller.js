@@ -141,7 +141,7 @@ module.exports = {
         try {
 
             await User.findOneAndUpdate({ _id: req.user._id }, { $unset: { auth_token: 1, auth_token_expiry: 1 } });
-            return res.status(constants.WEB_STATUS_CODE.CREATED).send({ message: 'User sign up success' });
+            return res.status(constants.WEB_STATUS_CODE.CREATED).send({ message: 'Logged out successfully' });
 
         } catch (err) {
             console.log('Error(logout): ', err);

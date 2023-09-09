@@ -21,7 +21,7 @@ module.exports = {
 
             let isExistingOrder = await Order.findOne({ order_code: reqBody.order_code });
             if (isExistingOrder) {
-                return res.status(constants.WEB_STATUS_CODE.BAD_REQUEST).send({ message: 'This order alredy exists' });
+                return res.status(constants.WEB_STATUS_CODE.BAD_REQUEST).send({ message: 'This order already exists' });
             }
 
             const uniqueOrderCode = generateUniqueOrderCode();
