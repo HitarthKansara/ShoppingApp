@@ -9,7 +9,7 @@ router.post('/sign-up', signUpValidator, validatorFunc, signup);
 router.post('/login', loginValidator, validatorFunc, login);
 router.post('/verify-otp', verifyOtpValidator, validatorFunc, verifyOtp);
 router.get('/profile', authenticate, validatorFunc, profile);
-router.put('/profile', authenticate, updateProfileValidator, validatorFunc, updateProfile);
+router.put('/edit-profile', authenticate, updateProfileValidator, validatorFunc, updateProfile);
 router.post('/logout', authenticate, validatorFunc, logout);
 
 module.exports = router;

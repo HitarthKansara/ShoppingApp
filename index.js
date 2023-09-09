@@ -3,8 +3,15 @@ const express = require('express');
 const app = express();
 const constants = require('./config/constants');
 const path = require('path');
+const swaggerUi = require('swagger-ui-express');
 
 require('./config/database');
+
+const swaggerDocument = require('./swagger.json');
+
+swaggerDocument.host = 'localhost:5001';
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 
 const indexRoute = require('./v1/routes/index.route');
 

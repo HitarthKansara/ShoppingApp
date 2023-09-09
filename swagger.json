@@ -1,0 +1,578 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "all api documation of Shopping App nodeJs",
+        "version": "1.0.0",
+        "title": "Swagger Shopping App NodeJs",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "email": "hitarthkansara27@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "host": "localhost:5001",
+    "basePath": "/v1/",
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/user/sign-up": {
+            "post": {
+                "summary": "User's Sign Up",
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Users"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "data",
+                        "description": "User Sign Up",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "mobile_number"
+                            ],
+                            "properties": {
+                                "mobile_number": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/user/login": {
+            "post": {
+                "summary": "User's Login",
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Users"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "data",
+                        "description": "User Login",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "mobile_number"
+                            ],
+                            "properties": {
+                                "mobile_number": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/user/verify-otp": {
+            "post": {
+                "summary": "verify-otp",
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Users"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "user",
+                        "description": "Verify Otp",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "otp"
+                            ],
+                            "properties": {
+                                "otp": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/user/profile": {
+            "get": {
+                "summary": "user get profile",
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Users"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "an authorization header, Please add Bearer keyword before token",
+                        "required": "true",
+                        "type": "string"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/user/edit-profile": {
+            "put": {
+                "summary": "User edit profile",
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Users"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "an authorization header, Please add Bearer keyword before token",
+                        "required": "true",
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "data",
+                        "description": "",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "first_name": {
+                                    "type": "string"
+                                },
+                                "last_name": {
+                                    "type": "string"
+                                },
+                                "email": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/user/logout/": {
+            "post": {
+                "summary": "User logout",
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Users"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "an authorization header, Please add Bearer keyword before token",
+                        "required": "true",
+                        "type": "string"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/product/add": {
+            "post": {
+                "summary": "add product",
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Product"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "an authorization header, Please add Bearer keyword before token",
+                        "required": "true",
+                        "type": "string"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "name",
+                        "type": "string",
+                        "required": true,
+                        "description": "Product name"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "size",
+                        "type": "string",
+                        "required": true,
+                        "description": "Product Size"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "colour",
+                        "type": "string",
+                        "required": true,
+                        "description": "Product Colour"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "price",
+                        "type": "number",
+                        "required": true,
+                        "description": "Product Price"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "quantity",
+                        "type": "number",
+                        "required": true,
+                        "description": "Product Quantity"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "image",
+                        "type": "file",
+                        "required": true,
+                        "description": "Product Image"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/product/update/{_id}": {
+            "put": {
+                "summary": "get product list",
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Product"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "an authorization header, Please add Bearer keyword before token",
+                        "required": "true",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_id",
+                        "in": "path",
+                        "description": "Product Id",
+                        "required": "true",
+                        "type": "string"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "name",
+                        "type": "string",
+                        "required": true,
+                        "description": "Product name"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "size",
+                        "type": "string",
+                        "required": true,
+                        "description": "Product Size"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "colour",
+                        "type": "string",
+                        "required": true,
+                        "description": "Product Colour"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "price",
+                        "type": "number",
+                        "required": true,
+                        "description": "Product Price"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "quantity",
+                        "type": "number",
+                        "required": true,
+                        "description": "Product Quantity"
+                    },
+                    {
+                        "in": "formData",
+                        "name": "image",
+                        "type": "file",
+                        "required": true,
+                        "description": "Product Image"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/product/delete/{_id}": {
+            "delete": {
+                "summary": "delete product",
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Product"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "an authorization header, Please add Bearer keyword before token",
+                        "required": "true",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_id",
+                        "in": "path",
+                        "description": "Product Id",
+                        "required": "true",
+                        "type": "string"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/product/list": {
+            "get": {
+                "summary": "Product list",
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Product"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "an authorization header, Please add Bearer keyword before token",
+                        "required": "true",
+                        "type": "string"
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "for search",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "page",
+                        "required": false,
+                        "type": "number"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "limit",
+                        "required": false,
+                        "type": "number"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/order/add": {
+            "post": {
+                "summary": "create order",
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Order"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "an authorization header, Please add Bearer keyword before token",
+                        "required": "true",
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "data",
+                        "description": "",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "products",
+                                "required_date"
+                            ],
+                            "properties": {
+                                "required_date": {
+                                    "type": "number"
+                                },
+                                "products": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "product_id": {
+                                                "type": "string"
+                                            },
+                                            "quantity": {
+                                                "type": "number"
+                                            },
+                                            "price": {
+                                                "type": "number"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/order/update/{_id}": {
+            "put": {
+                "summary": "update order",
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Order"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "an authorization header, Please add Bearer keyword before token",
+                        "required": "true",
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "data",
+                        "description": "",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "products",
+                                "required_date"
+                            ],
+                            "properties": {
+                                "required_date": {
+                                    "type": "number"
+                                },
+                                "products": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "product_id": {
+                                                "type": "string"
+                                            },
+                                            "quantity": {
+                                                "type": "number"
+                                            },
+                                            "price": {
+                                                "type": "number"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/order/delete/{_id}": {
+            "delete": {
+                "summary": "delete order",
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Order"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "an authorization header, Please add Bearer keyword before token",
+                        "required": "true",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_id",
+                        "in": "path",
+                        "description": "Order Id",
+                        "required": "true",
+                        "type": "string"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/order/list": {
+            "get": {
+                "summary": "Order list",
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Order"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "an authorization header, Please add Bearer keyword before token",
+                        "required": "true",
+                        "type": "string"
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "for search",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "page",
+                        "required": false,
+                        "type": "number"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "limit",
+                        "required": false,
+                        "type": "number"
+                    }
+                ],
+                "responses": {}
+            }
+        }
+    }
+}
